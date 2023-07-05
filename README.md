@@ -15,7 +15,7 @@ torchvision
 scipy
 ```
 
-**Refer to original GitHub, for Device support **
+**Refer to original GitHub, for Device support**
 ## Installation
 (from [Spikingjelly](https://github.com/fangwei123456/spikingjelly))
 
