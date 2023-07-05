@@ -44,9 +44,7 @@ Download the  [DVS128 gesture dataset from IBM](https://research.ibm.com/interac
 
 ***Open the SpikeJelly_Process_DVS.py***, and on line 16, replace the directory with the directtory you have downloaded the dataset e.g.:
 ```
-# specify the location in which the dataset was saved, if successfull, then SpikeJelly will extract into desired locations
 root_dir = 'D:/datasets/DVS128Gesture'
-train_set = DVS128Gesture(root_dir, train=True, data_type='event')
 ```
 Now run the python scipt and wait for the DVS128 dataset to extract. 
 
