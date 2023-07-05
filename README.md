@@ -19,11 +19,11 @@ _Refer to original GitHub, for Device support_
 ## Installation
 (from [Spikingjelly](https://github.com/fangwei123456/spikingjelly))
 
-### Install the last stable version from [PyPI](https://pypi.org/project/spikingjelly/):
+#### Install the last stable version from [PyPI](https://pypi.org/project/spikingjelly/):
 ```
 pip install spikingjelly
 ```
-### Install the latest developing version from the source codes, from [GitHub](https://github.com/fangwei123456/spikingjelly)
+#### Install the latest developing version from the source codes, from [GitHub](https://github.com/fangwei123456/spikingjelly)
 ```
 git clone https://github.com/fangwei123456/spikingjelly.git
 cd spikingjelly
