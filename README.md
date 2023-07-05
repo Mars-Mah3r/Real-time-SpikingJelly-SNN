@@ -14,8 +14,8 @@ tqdm
 torchvision
 scipy
 ```
+_Refer to original GitHub, for Device support_
 
-**Refer to original GitHub, for Device support**
 ## Installation
 (from [Spikingjelly](https://github.com/fangwei123456/spikingjelly))
 
@@ -32,4 +32,30 @@ python setup.py install
 
 ## Unpacking the DVS Gesture data
 (note: this current implementation is training using the [DVS128 gesture dataset from IBM](https://research.ibm.com/interactive/dvsgesture/), later iterations of this repo will incorporate a method of implentening real time data training.)
+
+Download the  [DVS128 gesture dataset from IBM](https://research.ibm.com/interactive/dvsgesture/), and save it to a particular directory e.g. _'D:/datasets/DVS128Gesture'_, the directory structure should be as follows: 
+```
+.
+|-- DvsGesture.tar.gz
+|-- LICENSE.txt
+|-- README.txt
+`-- gesture_mapping.csv
+```
+
+***Open the SpikeJelly_Process_DVS.py***, and on line 16, replace the directory with the directtory you have downloaded the dataset e.g.:
+```
+# specify the location in which the dataset was saved, if successfull, then SpikeJelly will extract into desired locations
+root_dir = 'D:/datasets/DVS128Gesture'
+train_set = DVS128Gesture(root_dir, train=True, data_type='event')
+```
+Now run the python scipt and wait for the DVS128 dataset to extract. 
+
+## Classify the dataset 
+
+Open the _SpikeJelly_classify_DVS.py_ and run the following command
+```
+python -m spikingjelly.activation_based.examples.classify_dvsg -T 16 -device cuda:0 -b 16 -epochs 64 -data-dir /datasets/DVSGesture/ -amp -cupy -opt adam -lr 0.001 -j 8
+```
+making sure to replace the "/datasets/DVSGesture", with the same directory you have used earlier.
+
 
