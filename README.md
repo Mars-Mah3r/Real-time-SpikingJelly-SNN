@@ -56,4 +56,8 @@ python -m spikingjelly.activation_based.examples.classify_dvsg -T 16 -device cud
 ```
 making sure to replace the "/datasets/DVSGesture", with the same directory you have used earlier.
 
+## Evaluate through forward propogation inference. 
+
+Have the event data from the DVS camera processed using the DV software and the **camera_capture.py**__
+
 
