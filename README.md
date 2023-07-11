@@ -70,6 +70,14 @@ Frame data will be generated from the event_matrices_np.npz and saved in locatio
 
 The .npz saved in location (3) should be correclty pre proccessed to fed into the trained SpikingJelly Network and produce a gesture classification label
 
+
+
+
+
+
+
+
+
 <sup>1</sup>![Screenshot 2023-07-11 200757](https://github.com/Mars-Mah3r/Real-time-SpikingJelly-SNN/assets/108829389/d3f6cfa2-347e-46bb-b029-4cb1970dc1ae) 
 
 
