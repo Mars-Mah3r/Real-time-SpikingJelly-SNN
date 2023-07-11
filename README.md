@@ -56,8 +56,23 @@ python -m spikingjelly.activation_based.examples.classify_dvsg -T 16 -device cud
 ```
 making sure to replace the "/datasets/DVSGesture", with the same directory you have used earlier.
 
+Alternatively, a directory can be set using the "Trained_checkpoints", to avoid training, and initialise trained weights automatically to the neural network
+
 ## Evaluate through forward propogation inference. 
 
-Have the event data from the DVS camera processed using the DV software and the **camera_capture.py**__
+Have the event data from the DVS camera processed using the DV software and the ****camera_capture.py****
+
+Ensure the save directory of the DVS_camera.npz is outputted to a directory that is concordant to the (1) below
+
+![Tut](https://github.com/Mars-Mah3r/Real-time-SpikingJelly-SNN/assets/108829389/4b221c92-6ec4-47e5-b5be-45283676756c)
+
+Frame data will be generated from the event_matrices_np.npz and saved in location (2). Ensure that recordings are kept short as large frame data generataion can cause too much GPU memory overhead<sup>1</sup> 
+
+The .npz saved in location (3) should be correclty pre proccessed to fed into the trained SpikingJelly Network and produce a gesture classification label
+
+<sup>1</sup>![Screenshot 2023-07-11 200757](https://github.com/Mars-Mah3r/Real-time-SpikingJelly-SNN/assets/108829389/d3f6cfa2-347e-46bb-b029-4cb1970dc1ae) 
+
+
+
 
 
