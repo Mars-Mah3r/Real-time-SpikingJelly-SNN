@@ -56,7 +56,7 @@ python -m spikingjelly.activation_based.examples.classify_dvsg -T 16 -device cud
 ```
 making sure to replace the "/datasets/DVSGesture", with the same directory you have used earlier.
 
-Alternatively, a directory can be set using the "Trained_checkpoints", to avoid training, and initialise trained weights automatically to the neural network
+***Alternatively, a directory can be set using the "Trained_checkpoints", to avoid training, and initialise trained weights automatically to the neural network***
 
 ## Evaluate through forward propogation inference. 
 
