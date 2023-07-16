@@ -91,8 +91,8 @@ This will convert the t, x, y, p data into a form being (20, 2, 128, 128)
 ```
 
 #### 3.3 Integrating data.
-The data at times can be extremely large to process locally, and this file can convert the t x y p data into a more manageable format. More details can be found (here)](https://spikingjelly.readthedocs.io/zh_CN/0.0.0.0.14/activation_based_en/neuromorphic_datasets.html#fixed-duration-integrating
-))
+The data at times can be extremely large to process locally, and this file can convert the t x y p data into a more manageable format. More details can be found [here](https://spikingjelly.readthedocs.io/zh_CN/0.0.0.0.14/activation_based_en/neuromorphic_datasets.html#fixed-duration-integrating
+)
 
 
 
