@@ -1,6 +1,6 @@
-# Real-time-SpikingJelly-SNN
+# Real-time-SpikingJelly-SNN 
 
-## Introduction
+## Introduction 
 This repository is based of the [Spikingjelly](https://github.com/fangwei123456/spikingjelly) by [fangwei123456](https://github.com/fangwei123456), refer to the original documentation for further notes. 
 
 The aim of this repository is to use the SpikingJelly spike-neural-network model is to be able to recieve as an input, real time data from a DVS camera, and use the SpikingJelly model to train the data in real time. 
@@ -14,6 +14,8 @@ tqdm
 torchvision
 scipy
 ```
+<sub>Other dependancies such as DV etc may be needed for pre-processing elements</sub>
+
 _Refer to original GitHub, for Device support_
 
 ## Installation
@@ -30,7 +32,8 @@ cd spikingjelly
 python setup.py install
 ```
 
-## Unpacking the DVS Gesture data
+## 1. Unpacking the DVS Gesture data 
+### _( SpikeJelly_Process_DVS.py )_
 (note: this current implementation is training using the [DVS128 gesture dataset from IBM](https://research.ibm.com/interactive/dvsgesture/), later iterations of this repo will incorporate a method of implentening real time data training.)
 
 Download the  [DVS128 gesture dataset from IBM](https://research.ibm.com/interactive/dvsgesture/), and save it to a particular directory e.g. _'D:/datasets/DVS128Gesture'_, the directory structure should be as follows: 
