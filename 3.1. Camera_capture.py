@@ -50,6 +50,12 @@ def transform_tile(tile):
     # add these 2 binary matrices together
     transformed_tile = positive_color_matrix + negative_color_matrix
 
+    transformed_tile = np.array(transformed_tile, dtype='uint8')
+    new_width = 64
+    new_height = 64
+
+    transformed_tile = cv.resize(transformed_tile, (new_width, new_height), interpolation=cv.INTER_LINEAR)
+
     return transformed_tile
 
 def preview_events(event_slice):
@@ -66,11 +72,11 @@ def preview_events(event_slice):
     global maher_y
     global maher_p
     # append to the appropriate information to the appropriate attribute
-    for event in event_slice:
-        maher_t.append(event.timestamp())
-        maher_x.append(event.x())
-        maher_y.append(event.y())
-        maher_p.append(event.polarity())
+    # for event in event_slice:
+    #     maher_t.append(event.timestamp())
+    #     maher_x.append(event.x())
+    #     maher_y.append(event.y())
+    #     maher_p.append(event.polarity())
 
     # Show the grayscale image
     cv.imshow("Binary", image)
@@ -78,7 +84,7 @@ def preview_events(event_slice):
 
 # Create an event slicer, this will only be used events only reader
 slicer = dv.EventStreamSlicer()
-slicer.doEveryTimeInterval(datetime.timedelta(milliseconds=33), preview_events) # increase delta to playback faster (more events in a given slice)
+slicer.doEveryTimeInterval(datetime.timedelta(milliseconds=1000), preview_events) # increase delta to playback faster (more events in a given slice)
 
 # start read loop
 while reader.isRunning():
