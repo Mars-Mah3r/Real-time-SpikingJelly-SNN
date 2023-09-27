@@ -95,7 +95,7 @@ def readIBM():
     # Create the preview window
     cv.namedWindow("IBM", cv.WINDOW_NORMAL)
 
-    def ibm(event_slice):
+    def preview_ibm(event_slice):
         # Show the accumulated image
         original = visualizer.generateImage(event_slice)
 
@@ -109,14 +109,44 @@ def readIBM():
         cv.waitKey(2)
         return image
 
-    ibmslicer = dv.EventStreamSlicer()
-    ibmslicer.doEveryTimeInterval(datetime.timedelta(milliseconds=100), ibm) # increase delta to playback faster (more events in a given slice)
+    slicer = dv.EventStreamSlicer()
+    slicer.doEveryTimeInterval(datetime.timedelta(milliseconds=100), preview_ibm) # increase delta to playback faster (more events in a given slice)
 
     while reader.isRunning():
         events = reader.getNextEventBatch()
 
         if events is not None:
-            ibmslicer.accept(events)
+            slicer.accept(events)
+
+def readDVS(args):
+    reader = dv.io.MonoCameraRecording(args)
+    visualizer = dv.visualization.EventVisualizer(reader.getEventResolution())
+    
+    # Create the preview window
+    cv.namedWindow("DVS", cv.WINDOW_NORMAL)
+
+    def preview_ibm(event_slice):
+        # Show the accumulated image
+        original = visualizer.generateImage(event_slice)
+
+        ''' Transform RGB image and then add 1 to the resulting matrix- thus the entries of the matrix have values of 0, 1 or 2. 
+            Having done so, multiply through by 127, yielding a matrix with entries that only ever take on the values of 0, 127 or 254.
+            The image is now grayscale.'''
+        image = np.uint8((transform_tile(original) + 1) * 127)
+
+        # Show the grayscale image
+        cv.imshow("DVS", image)
+        cv.waitKey(2)
+        return image
+
+    slicer = dv.EventStreamSlicer()
+    slicer.doEveryTimeInterval(datetime.timedelta(milliseconds=100), preview_ibm) # increase delta to playback faster (more events in a given slice)
+
+    while reader.isRunning():
+        events = reader.getNextEventBatch()
+
+        if events is not None:
+            slicer.accept(events)
 
 if __name__ == '__main__':
-    readIBM()
+    readDVS(r"C:\Users\LATITUDE\Documents\KURF\DvsGestureConverted\user01_fluorescent.aedat4")
